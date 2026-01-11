@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magnetosphere Status</title>
+    <style>
+        body {
+            background: #000;
+            color: #d0d0d0;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            margin: 0;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 20px;
+            font-weight: normal;
+            letter-spacing: 1px;
+            margin: 0 0 10px;
+            color: #ffffff;
+        }
+        .status {
+            font-size: 18px;
+            font-weight: bold;
+            padding: 12px 25px;
+            margin: 0 auto 30px;
+            max-width: 500px;
+            border-radius: 4px;
+            border: 1px solid #004400;
+            background: #001100;
+            color: #00ff00;
+        }
+        .time {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 13px;
+        }
+        .section {
+            margin: 40px 0;
+        }
+        .section h2 {
+            font-size: 16px;
+            font-weight: normal;
+            color: #bbbbbb;
+            margin: 0 0 12px;
+        }
+        img.graph {
+            width: 100%;
+            max-width: 920px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border: 1px solid #333;
+        }
+        .note {
+            font-size: 12px;
+            color: #666666;
+            max-width: 780px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>MAGNETOSPHERE STATUS</h1>
+
+    <div class="status">
+        Current status: GREEN (calm) • Магнітосфера спокійна
+    </div>
+
+    <div class="time">2026-01-11T04:50Z</div>
+
+    <div class="section">
+        <h2>Dst Index — Quicklook (Kyoto)</h2>
+        <img class="graph" src="https://wdc.kugi.kyoto-u.ac.jp/dst_realtime/presentmonth/dst2601.png" alt="Dst quicklook">
+    </div>
+
+    <div class="section">
+        <h2>Geospace Activity — 7 days (NOAA)</h2>
+        <img class="graph" src="https://services.swpc.noaa.gov/images/geospace/geospace_7_day.png" alt="Geospace 7-day">
+    </div>
+
+    <div class="note">
+        AE/AL/AU — немає публічних реал-тайм графіків<br>
+        Найбільш актуальні дані: Kyoto Dst (до ~5 січня), NOAA Geospace (прогноз + observed)<br>
+        Графіки оновлюються автоматично на серверах джерел.
+    </div>
+
+    <script>
+        setInterval(() => {
+            const t = new Date();
+            document.querySelector('.time').textContent = t.toISOString().slice(0,19) + 'Z';
+        }, 10000);
+    </script>
+</body>
+</html>
